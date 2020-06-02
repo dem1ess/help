@@ -1,0 +1,23 @@
+{
+  "name": "plus_sushi",
+  "version": "1.0.0",
+  "description": "this a diplom",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": ""
+  },
+  "dependencies": {
+    "@angular/http": "^7.2.16",
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "cors": "*",
+    "express": "*",
+    "jsonwebtoken": "*",
+    "mongoose": "*",
+    "passport": "*",
+    "passport-jwt": "*"
+  },
+  "author": "Stanislav Kharchenko",
+  "license": "ISC"
+}
