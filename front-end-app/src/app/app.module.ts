@@ -12,13 +12,16 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { CheckFormService } from './check-form.service';
 import { AuthService } from './auth.service';
 import { HttpModule } from '@angular/http';
 
-import { IsLoggedIn } from './isLogged.guard'
+import { IsLoggedIn } from './isLogged.guard';
+import { ProductComponent } from './product/product.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { ProductDetailsComponent } from './product-details/product-details.component'
 
 const appRoute: Routes = [
   {path: '', component: HomeComponent},
@@ -35,7 +38,10 @@ const appRoute: Routes = [
     AuthComponent,
     DashboardComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    ProductComponent,
+    ProductListComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +50,11 @@ const appRoute: Routes = [
     FormsModule,
     FlashMessagesModule.forRoot(),
     HttpModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      {path: '', component: ProductComponent},
+      {path: 'products/:produuctId', component: ProductDetailsComponent}
+    ])
 
   ],
   providers: [CheckFormService, AuthService, IsLoggedIn],

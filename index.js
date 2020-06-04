@@ -40,11 +40,14 @@ app.get('/', (req, res) => {
 
 app.use('/account', account)
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/index.html'))
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'public/index.html'))
+// })
+
+app.listen(port , () => {
+    console.log("Сервер был запущен по порту"+port);
+    
 })
-
-
 
 
 

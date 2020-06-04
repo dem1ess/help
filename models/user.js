@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs')
 const config = require('../config/db')
 
 const UserSchema = mongoose.Schema({
+    
     name: {
         type: String
     },
@@ -17,6 +18,14 @@ const UserSchema = mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    role: {
+        type: String,
+        default: "client"
+    },
+    cart: {
+        type: Array,
+        default: []
     }
 })
 
@@ -46,4 +55,10 @@ bcrypt.compare(passFromUser, userDBPass, (err, isMatch) => {
     if (err) throw err
     callback(null, isMatch)
 })
+}
+
+module.exports.addToCart = async function (productId, callback) {
+    const cart = await cart.findById(id);
+    cart.board.push(10);
+    await cart.save();
 }

@@ -15,9 +15,9 @@ export class AuthComponent implements OnInit {
 
 
   constructor(
-    private flashMessages: FlashMessagesService,
-    private router: Router,
-    private authService: AuthService
+    public flashMessages: FlashMessagesService,
+    public router: Router,
+    public authService: AuthService
   ) { }
 
   ngOnInit() {

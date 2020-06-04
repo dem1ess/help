@@ -19,9 +19,9 @@ export class RegComponent implements OnInit {
 
   constructor(
     private checkForm: CheckFormService,
-    private flashMessages: FlashMessagesService,
-    private router: Router,
-    private authService: AuthService
+    public flashMessages: FlashMessagesService,
+    public router: Router,
+    public authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -34,6 +34,7 @@ export class RegComponent implements OnInit {
       login: this.login,
       password: this.password
     };
+console.log('yes');
 
     if(!this.checkForm.checkName(user.name)) {
       this.flashMessages.show("Имя пользователя не введено", {
@@ -73,7 +74,7 @@ export class RegComponent implements OnInit {
           cssClass: 'alert-success',
           timeout: 2000
         });
-        this.router.navigate(['auth']);
+        this.router.navigate(['/auth']);
       }
     });
 
