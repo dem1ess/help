@@ -6,6 +6,7 @@ const passport = require('passport')
 const path = require('path')
 const config = require('./config/db')
 const account = require('./routes/account')
+const Product = require('./models/product')
 
 const app = express()
 
@@ -39,6 +40,23 @@ app.get('/', (req, res) => {
 })
 
 app.use('/account', account)
+
+app.post('/api/post/getAllProduct', (req, res)=> {
+    console.log('connection');
+    mongoose.connect(config.db, { useNewUrlParser: true }, function(err){
+        if(err) throw err;
+        Product.find({},[],{sort: {id: -1}},(err, doc)=> {
+            if(err) throw err;
+            console.log('result is ',doc);
+        return res.status(200).json({
+            status: 'success',
+            data: doc
+               })
+         })  
+    })
+})
+
+
 
 // app.get('*', (req, res) => {
 //     res.sendFile(path.join(__dirname, 'public/index.html'))

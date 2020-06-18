@@ -1,11 +1,10 @@
 const mongoose =require('mongoose')
 const config = require('../config/db')
-var products = [
-    {id = 1, name = "Каліфорнія", price = 125, description = "Опис"},
-    {id = 2, name = "Філадельфія", price = 115, description = "Опис"},
-    {id = 3, name = "Каліфорнія з крабовим м'ясом", price = 100, description = "Опис"}
-]
-const ProductSchema = mongoose.Schema({
+const express = require('express')
+const router = express.Router()
+
+
+const productSchema = mongoose.Schema({
     id: {
         type: Number
     },
@@ -23,15 +22,58 @@ const ProductSchema = mongoose.Schema({
     }
 
 })
+ 
+let Product = module.exports = mongoose.model('Product', productSchema);
 
-const Product = module.exports = mongoose.model('Product', ProductsSchema)
+// const products = new Product [
+//     {id: 1, name: "Каліфорнія", price:125, description: "Опис"},
+//     {id: 2, name: "Філадельфія", price: 115, description: "Опис"},
+//     {id: 3, name: "Каліфорнія з крабовим м'ясом", price: 100, description: "Опис"}
+// ];
+let kali = new Product ({
+    id: 1,
+    name: "Калифорния",
+    price: 150,
+    description: "Опис"
+})
+let fila = new Product ({
+    id: 1,
+    name: "Калифорния",
+    price: 150,
+    description: "Опис"
+})
+let filalos = new Product ({
+    id: 1,
+    name: "Калифорния",
+    price: 150,
+    description: "Опис"
+})
+
+
+kali.save(function (err) {
+    if (err) throw err;
+    console.log('save');
+    
+})
+fila.save(function (err) {
+    if (err) throw err;
+    console.log('save');
+    
+})
+filalos.save(function (err) {
+    if (err) throw err;
+    console.log('save');
+    
+})
 
 
 module.exports.getPrudctById = function (id, callback) {
-Products.findById(id, callback)
+product.findById(id, callback)
 }
 
-module.exports.addProduct = function (newProduct, callback) {
-    
-           // newUser.save(callback)
-   }
+
+
+// module.exports.addProduct = function (newProduct, callback) {
+//     newProduct.save(callback);
+//            // newUser.save(callback)
+//    }

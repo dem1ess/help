@@ -1,22 +1,42 @@
-
 <div class="album py-5 bg-light">
   <div class="container">
     <div class="row">
-<div class="col-md-4" *ngFor="let product of products">
-  <div class="card mb-4 shadow-sm">
-    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>{{product.name}}</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></svg>
-    <div class="card-body">
-      <p class="card-text">{{product.name}}</p>
-      <div class="d-flex justify-content-between align-items-center">
-        <div class="btn-group">
-          <button type="button" class="btn btn-sm btn-outline-secondary" (click)="Test(product.id)">Додати до корзини</button>
-          <button type="button" class="btn btn-sm btn-outline-secondary">Більше</button>
+      <div class="col-md-4" *ngFor="let product of products">
+        <div class="card mb-4 shadow-sm">
+          <svg
+            class="bd-placeholder-img card-img-top"
+            width="100%"
+            height="225"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMidYMid slice"
+            focusable="false"
+            role="img"
+            aria-label="Placeholder: Thumbnail"
+          >
+            <title>{{ product.name }}</title>
+            <rect width="100%" height="100%" fill="#55595c"></rect>
+            <text x="50%" y="50%" fill="#eceeef" dy=".3em"></text>
+          </svg>
+          <div class="card-body">
+            <p class="card-text">{{ product.name }}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button
+                  type="button"
+                  class="btn btn-sm btn-outline-secondary"
+                  (click)="Test(product)"
+                >
+                  Додати до корзини
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">
+                  Більше
+                </button>
+              </div>
+              <small class="text-muted">{{ product.price }} грн</small>
+            </div>
+          </div>
         </div>
-        <small class="text-muted">{{product.price}} грн</small>
       </div>
     </div>
   </div>
 </div>
-</div>
-  </div>
-    </div>

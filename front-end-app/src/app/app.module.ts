@@ -22,6 +22,9 @@ import { IsLoggedIn } from './isLogged.guard';
 import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailsComponent } from './product-details/product-details.component'
+import { ProductListService } from './product-list.service';
+import { HttpClientModule } from '@angular/common/http';
+import { CartComponent } from './cart/cart.component';
 
 const appRoute: Routes = [
   {path: '', component: HomeComponent},
@@ -41,7 +44,8 @@ const appRoute: Routes = [
     FooterComponent,
     ProductComponent,
     ProductListComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +54,7 @@ const appRoute: Routes = [
     FormsModule,
     FlashMessagesModule.forRoot(),
     HttpModule,
+    HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       {path: '', component: ProductComponent},
@@ -57,7 +62,7 @@ const appRoute: Routes = [
     ])
 
   ],
-  providers: [CheckFormService, AuthService, IsLoggedIn],
+  providers: [CheckFormService, AuthService, IsLoggedIn, ProductListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
